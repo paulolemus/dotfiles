@@ -1,6 +1,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install plugins with :PluginInstall
+
 set nocompatible
 filetype off
 
@@ -9,9 +11,19 @@ call vundle#begin()
 
 " Plugins go below this line
 
+""" Colorschemes
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'jacoborus/tender.vim'
+
+""" Languages
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/html5.vim'
+
+""" Misc
+" Git integration
+Plugin 'tpope/vim-fugitive'
+" statusline for vim
+Plugin 'itchyny/lightline.vim'
 
 " Plugins go above this line
 
@@ -111,16 +123,14 @@ set foldcolumn=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Enable syntax highlighting
 syntax enable 
 
-" Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
+" Enable 256 colors palette in terminal
+if $COLORTERM == 'gnome-terminal' || $COLORTERM == 'truecolor'
     set t_Co=256
 endif
-
-set background=dark
-" colorscheme solarized " a color plugin
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -130,11 +140,20 @@ if has("gui_running")
     set guitablabel=%M\ %t
 endif
 
+" Enable term gui colors as if vim was running as gui
+"if (has("termguicolors"))
+"    set termguicolors
+"endif
+
+
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
+
+" default background
+set background=dark
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -222,16 +241,6 @@ endtry
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
-
-""""""""""""""""""""""""""""""
-" => Status line
-""""""""""""""""""""""""""""""
-" Always show the status line
-set laststatus=2
-
-" Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -322,3 +331,51 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugin Configuration 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""" Colorschemes
+let my_colorscheme='tender'
+
+if my_colorscheme == 'tender'
+    colorscheme tender
+elseif my_colorscheme == 'solarized_dark'
+    set background=dark
+    let g:solarized_termcolors=256  " Enable colorschemes outside guivim
+    let g:solarized_termtrans=1     " Enable terminal transparency
+    colorscheme solarized           " Enable solarized 
+elseif my_colorscheme == 'solarized_light'
+    set background=light
+    let g:solarized_termcolors=256  " Enable colorschemes outside guivim
+    colorscheme solarized           " Enable solarized 
+endif
+
+""" Languages
+
+" vim-javascript
+" Enable syntax hilighting for JSDocs
+let g:javascript_plugin_jsdoc = 1
+
+
+
+""" Misc
+
+" lightline
+" Enable status bar
+set laststatus=2
+" Disable redundant vim mode beneath status line
+set noshowmode
+" Advanced configuration
+let g:lightline = {
+    \ 'component_function': {
+    \   'gitbranch': 'fugitive#head'
+    \ },
+    \ }
+
+
+
+

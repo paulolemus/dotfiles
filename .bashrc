@@ -22,6 +22,15 @@ PS1='[\u@\h \W]\$ '
 # Make vim primary visual text editor
 export VISUAL="vim"
 
+# Include folder for homemade executables
+export PATH=$HOME/.bin/:$PATH
+
+# For pintos project
+export PATH=$HOME/repos/ee468/pintos/src/utils/:$PATH
+
+# For global NPM modules
+export NODE_PATH=$NODE_PATH:/usr/lib/node_modules
+
 ###############
 #   Aliases   #
 ###############
@@ -39,6 +48,9 @@ alias ...='cd ../..'
 # Directory shortcuts
 alias repos='cd ~/repos'
 alias docs='cd ~/Documents'
+alias mm='cd ~/repos/micromouse'
+alias shaka='cd ~/repos/shaka-show'
+alias leet='cd ~/repos/leetcode'
 
 # git shortcuts
 alias gs='git status'
