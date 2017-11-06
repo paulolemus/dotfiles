@@ -11,6 +11,19 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# Don't put duplicate lines in history
+HISTCONTROL=ignoreboth
+
+# Check window size after each command, update
+# values of LINES AND COLUMNS after change.
+shopt -s checkwinsize
+
 # Set primary prompt of bash
 PS1='[\u@\h \W]\$ '
 
@@ -35,31 +48,10 @@ export NODE_PATH=$NODE_PATH:/usr/lib/node_modules
 #   Aliases   #
 ###############
 
-# Default ls to have color
-alias ls='ls --color=auto'
-# ls shortcuts
-alias l='ls'
-alias la='ls -A'
-
-# Navigation shortcuts
-alias ..='cd ..'
-alias ...='cd ../..'
-
-# Directory shortcuts
-alias repos='cd ~/repos'
-alias docs='cd ~/Documents'
-alias mm='cd ~/repos/micromouse'
-alias shaka='cd ~/repos/shaka-show'
-alias leet='cd ~/repos/leetcode'
-
-# git shortcuts
-alias gs='git status'
-alias gp='git pull'
-alias gpp='git push'
-
-# grep
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
+# Source bash_aliases if it exists
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 ############
 #   Misc   #
