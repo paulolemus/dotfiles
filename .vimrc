@@ -11,11 +11,18 @@ call vundle#begin()
 
 " Plugins go below this line
 
+""" Editing
+" Pair brackets, parens, quotes
+Plugin 'jiangmiao/auto-pairs'
+" Autocompletion for C/C++/JavaScript/Rust/Python
+Plugin 'valloric/youcompleteme'
+
 """ Colorschemes
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jacoborus/tender.vim'
 
 """ Languages
+Plugin 'rust-lang/rust.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/html5.vim'
 
@@ -338,6 +345,11 @@ endfunction
 " => Plugin Configuration 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""" Editing
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 """ Colorschemes
 let my_colorscheme='tender'
 
@@ -355,6 +367,10 @@ elseif my_colorscheme == 'solarized_light'
 endif
 
 """ Languages
+
+" Rust.vim
+" Enable automatic Rust formatting
+let g:rustfmt_autosave = 1
 
 " vim-javascript
 " Enable syntax hilighting for JSDocs

@@ -44,6 +44,9 @@ export PATH=$HOME/repos/ee468/pintos/src/utils/:$PATH
 # For global NPM modules
 export NODE_PATH=$NODE_PATH:/usr/lib/node_modules
 
+# For Rust crate binaries
+export PATH=$PATH:$HOME/.cargo/bin/
+
 ###############
 #   Aliases   #
 ###############
