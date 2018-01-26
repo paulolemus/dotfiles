@@ -111,5 +111,8 @@ export VISUAL="vim"
 # Include folder for homemade executables
 export PATH=$HOME/.bin/:$PATH
 
+# Include folder for pip user installations
+export PATH=$HOME/.local/bin/:$PATH
+
 
 
