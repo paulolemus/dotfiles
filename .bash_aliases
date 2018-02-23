@@ -12,7 +12,7 @@ alias ll='ls -alF'
 # Navigation shortcuts
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ...='cd ../../..'
+alias ....='cd ../../..'
 
 # Directory shortcuts
 alias repos='cd ~/repos'
