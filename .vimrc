@@ -17,14 +17,15 @@ Plugin 'jiangmiao/auto-pairs'
 " Autocompletion for C/C++/JavaScript/Rust/Python
 Plugin 'valloric/youcompleteme'
 
-""" Colorschemes
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jacoborus/tender.vim'
-
 """ Languages
 Plugin 'rust-lang/rust.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/html5.vim'
+
+""" Colorschemes
+Plugin 'jacoborus/tender.vim'
+Plugin 'morhetz/gruvbox'
+Plugin 'dracula/vim'
 
 """ Misc
 " Git integration
@@ -148,10 +149,9 @@ if has("gui_running")
 endif
 
 " Enable term gui colors as if vim was running as gui
-"if (has("termguicolors"))
-"    set termguicolors
-"endif
-
+if (has("termguicolors"))
+    set termguicolors
+endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -159,7 +159,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-" default background
+" Default background style
 set background=dark
 
 
@@ -351,20 +351,8 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
 """ Colorschemes
-let my_colorscheme='tender'
-
-if my_colorscheme == 'tender'
-    colorscheme tender
-elseif my_colorscheme == 'solarized_dark'
-    set background=dark
-    let g:solarized_termcolors=256  " Enable colorschemes outside guivim
-    let g:solarized_termtrans=1     " Enable terminal transparency
-    colorscheme solarized           " Enable solarized 
-elseif my_colorscheme == 'solarized_light'
-    set background=light
-    let g:solarized_termcolors=256  " Enable colorschemes outside guivim
-    colorscheme solarized           " Enable solarized 
-endif
+" Options: tender, dracula, gruvbox
+colorscheme gruvbox 
 
 """ Languages
 
@@ -377,7 +365,6 @@ let g:rustfmt_autosave = 1
 let g:javascript_plugin_jsdoc = 1
 
 
-
 """ Misc
 
 " lightline
@@ -387,8 +374,13 @@ set laststatus=2
 set noshowmode
 " Advanced configuration
 let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ], 
+    \             [ 'gitfugitive', 'readonly', 'filename', 'modified' ] ]
+    \ },
     \ 'component_function': {
-    \   'gitbranch': 'fugitive#head'
+    \   'gitfugitive': 'fugitive#statusline'
     \ },
     \ }
 
