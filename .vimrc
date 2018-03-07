@@ -9,6 +9,9 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" let Vundle manage VUndle, required
+Plugin 'VundleVim/Vundle.vim'
+
 " Plugins go below this line
 
 """ Editing
@@ -16,6 +19,8 @@ call vundle#begin()
 Plugin 'jiangmiao/auto-pairs'
 " Autocompletion for C/C++/JavaScript/Rust/Python
 Plugin 'valloric/youcompleteme'
+" Send text from vim to REPL in tmux
+Plugin 'jpalardy/vim-slime'
 
 """ Languages
 Plugin 'rust-lang/rust.vim'
@@ -348,14 +353,18 @@ endfunction
 " => Plugin Configuration 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
 """ Editing
+
+" YCM
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
-""" Colorschemes
-" Options: tender, dracula, gruvbox
-colorscheme gruvbox 
+" vim-slime
+let g:slime_target = "tmux"
+let g:slime_paste_file = "$HOME/.slime_paste_temp"
+
 
 """ Languages
 
@@ -366,6 +375,11 @@ let g:rustfmt_autosave = 1
 " vim-javascript
 " Enable syntax hilighting for JSDocs
 let g:javascript_plugin_jsdoc = 1
+
+
+""" Colorschemes
+" Options: tender, dracula, gruvbox
+colorscheme gruvbox 
 
 
 """ Misc
@@ -386,7 +400,4 @@ let g:lightline = {
     \   'gitfugitive': 'fugitive#statusline'
     \ },
     \ }
-
-
-
 
