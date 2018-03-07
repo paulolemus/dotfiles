@@ -364,6 +364,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " vim-slime
 let g:slime_target = "tmux"
 let g:slime_paste_file = "$HOME/.slime_paste_temp"
+let g:slime_python_ipython = 1
 
 
 """ Languages
