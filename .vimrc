@@ -153,6 +153,9 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
+" Disable background color erase for compatibility with tmux
+set t_ut=
+
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
