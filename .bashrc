@@ -125,6 +125,6 @@ export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 # Let us find installed npm package binaries
 export PATH="$PATH:$NPM_PACKAGES/bin"
 # Let us find man pages
-export MANPATH="$(manpath):$NPM_PACKAGES/share/man"
+#export MANPATH="$(manpath):$NPM_PACKAGES/share/man"
 
 
