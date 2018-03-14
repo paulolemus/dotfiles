@@ -114,5 +114,17 @@ export PATH=$HOME/.bin/:$PATH
 # Include folder for pip user installations
 export PATH=$HOME/.local/bin/:$PATH
 
+# Include microchip compiler binaries
+export PATH="$PATH:"/opt/microchip/xc16/v1.33/bin""
+
+## NPM path config
+# Path to all globally installed npm packges
+NPM_PACKAGES="${HOME}/.npm_packages"
+# Let node repl find packages
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+# Let us find installed npm package binaries
+export PATH="$PATH:$NPM_PACKAGES/bin"
+# Let us find man pages
+export MANPATH="$(manpath):$NPM_PACKAGES/share/man"
 
 
