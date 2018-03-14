@@ -25,6 +25,7 @@ Plugin 'jpalardy/vim-slime'
 """ Languages
 Plugin 'rust-lang/rust.vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'othree/html5.vim'
 
 """ Colorschemes
@@ -376,6 +377,9 @@ let g:rustfmt_autosave = 1
 " vim-javascript
 " Enable syntax hilighting for JSDocs
 let g:javascript_plugin_jsdoc = 1
+
+" typescript-vim
+
 
 
 """ Colorschemes
