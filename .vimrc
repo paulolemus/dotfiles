@@ -32,6 +32,7 @@ Plugin 'othree/html5.vim'
 Plugin 'jacoborus/tender.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'dracula/vim'
+Plugin 'sickill/vim-monokai'
 
 """ Misc
 " Git integration
@@ -362,6 +363,13 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
+" Ensure correct python interpreter is sourced for autocompletion
+if exists("$VIRTUAL_ENV")
+    let g:ycm_python_binary_path = 'python'
+else
+    let g:ycm_python_binary_path = '/usr/bin/python3'
+endif
+
 " vim-slime
 let g:slime_target = "tmux"
 let g:slime_paste_file = "$HOME/.slime_paste_temp"
@@ -383,8 +391,8 @@ let g:javascript_plugin_jsdoc = 1
 
 
 """ Colorschemes
-" Options: tender, dracula, gruvbox
-colorscheme gruvbox 
+" Options: tender, dracula, gruvbox, monokai
+colorscheme gruvbox
 
 
 """ Misc
