@@ -1,49 +1,38 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vundle 
+" => Plugins 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Using vim plugin manager 'vim-plug'.
 " Install plugins with :PluginInstall
 
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage VUndle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Plugins go below this line
-
-""" Editing
-" Pair brackets, parens, quotes
-Plugin 'jiangmiao/auto-pairs'
-" Autocompletion for C/C++/JavaScript/Rust/Python
-Plugin 'valloric/youcompleteme'
-" Send text from vim to REPL in tmux
-Plugin 'jpalardy/vim-slime'
+" Currently using neovim. For vim, use ~/.vim/plugged
+call plug#begin('~/.local/share/nvim/plugged')
 
 """ Languages
-Plugin 'rust-lang/rust.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'othree/html5.vim'
+Plug 'rust-lang/rust.vim'
 
 """ Colorschemes
-Plugin 'jacoborus/tender.vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'dracula/vim'
-Plugin 'sickill/vim-monokai'
+Plug 'jacoborus/tender.vim'
+Plug 'morhetz/gruvbox'
+Plug 'dracula/vim'
+Plug 'sickill/vim-monokai'
 
 """ Misc
 " Git integration
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
+" Git diff tracking
+Plug 'airblade/vim-gitgutter'
 " statusline for vim
-Plugin 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 
 " Plugins go above this line
+call plug#end()
 
-call vundle#end()
-filetype plugin indent on
+" These two lines are run by default in vim-plug.
+" Uncomment if not using plug.
+" filetype plugin indent on
+" syntax enable 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -139,8 +128,6 @@ set foldcolumn=1
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Enable syntax highlighting
-syntax enable 
 
 " Enable 256 colors palette in terminal
 if $COLORTERM == 'gnome-terminal' || $COLORTERM == 'truecolor'
@@ -381,13 +368,6 @@ let g:slime_python_ipython = 1
 " Rust.vim
 " Enable automatic Rust formatting
 let g:rustfmt_autosave = 1
-
-" vim-javascript
-" Enable syntax hilighting for JSDocs
-let g:javascript_plugin_jsdoc = 1
-
-" typescript-vim
-
 
 
 """ Colorschemes

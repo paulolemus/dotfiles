@@ -117,14 +117,6 @@ export PATH=$HOME/.local/bin/:$PATH
 # Include microchip compiler binaries
 export PATH="$PATH:"/opt/microchip/xc16/v1.33/bin""
 
-## NPM path config
-# Path to all globally installed npm packges
-NPM_PACKAGES="${HOME}/.npm_packages"
-# Let node repl find packages
-export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-# Let us find installed npm package binaries
-export PATH="$PATH:$NPM_PACKAGES/bin"
-# Let us find man pages
-#export MANPATH="$(manpath):$NPM_PACKAGES/share/man"
-
-
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
