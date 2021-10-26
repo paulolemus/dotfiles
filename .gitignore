@@ -3,6 +3,13 @@
 ## Append this to your project's gitignore.
 ## Some chunks taken from sources such as octocat.
 
+# Build & IDE generated files #
+###############################
+build/
+.vscode/
+target/
+__pycache__/
+
 # Compiled source #
 ###################
 *.com
@@ -69,4 +76,3 @@
 ehthumbs.db
 Thumbs.db
 Desktop.ini
-
