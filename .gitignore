@@ -3,12 +3,20 @@
 ## Append this to your project's gitignore.
 ## Some chunks taken from sources such as octocat.
 
-# Build & IDE generated files #
+# IDE generated files #
 ###############################
-build/
 .vscode/
+
+# Rust #
+########
 target/
+build/
+
+# Python #
+###########
 __pycache__/
+.ipynb_checkpoints/
+ipython_config.py
 
 # Compiled source #
 ###################
